@@ -16,14 +16,15 @@ public class DeleteItemsListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		final Component item = (Component) e.getSource();
 		final MyFrame frame = (MyFrame) ReferenceFinder.findFrame(item);
-
-		// left - setp by step
+		
 		final JList<String> list = frame.getMyJList();
 		final DefaultListModel<String> model = (DefaultListModel<String>) list.getModel();
-		model.remove(0);
+		
+		int[] selectedIndices = list.getSelectedIndices();
+		for (int i = selectedIndices.length - 1; i >= 0; i--) {
+			model.removeElementAt(selectedIndices[i]);
+		}
 
-		// right - same as left but "short"
-		((DefaultListModel<String>) frame.getMyJList().getModel()).remove(0);
 	}
 
 }

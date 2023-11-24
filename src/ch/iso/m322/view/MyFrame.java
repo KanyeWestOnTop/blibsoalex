@@ -120,4 +120,8 @@ public class MyFrame extends JFrame {
 		this.myJList = list;
 	}
 
+    public Eintrag getEintrag() {
+        return null;
+    }
+
 }
