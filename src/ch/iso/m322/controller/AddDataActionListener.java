@@ -7,14 +7,19 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JTextField;
 
 import ch.iso.m322.model.Eintrag;
 import ch.iso.m322.util.ReferenceFinder;
 import ch.iso.m322.view.MyFrame;
 
 public class AddDataActionListener implements ActionListener {
-
-
+	private JTextField eingabe;
+	
+	public AddDataActionListener(JTextField eingabe) {
+		super();
+		this.eingabe = eingabe;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -23,16 +28,11 @@ public class AddDataActionListener implements ActionListener {
 		final JFrame frame = ReferenceFinder.findFrame(item);		
 
 		Eintrag eintrag = ((MyFrame) frame).getEintrag();
-
+		
 		final JList<String> list = ((MyFrame) frame).getMyJList();
 		final DefaultListModel<String> model = (DefaultListModel<String>) list.getModel();
 		
-		model.addElement(eintrag.getEintrag());
-		
-
-		
-		
-		
+		model.addElement(eingabe.getText());
 	
 	}
 

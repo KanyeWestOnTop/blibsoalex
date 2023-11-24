@@ -89,7 +89,7 @@ public class MyFrame extends JFrame {
 
 		final JButton bAdd = new JButton(FrameConstants.FRAME_BUTTON_ADD);
 
-		bAdd.addActionListener(new AddDataActionListener());
+		bAdd.addActionListener(new AddDataActionListener(this.eintrag));
 		contentRightUp.add(lEintrag);
 		contentRightUp.add(tEintrag);
 		contentRightUp.add(bAdd);
