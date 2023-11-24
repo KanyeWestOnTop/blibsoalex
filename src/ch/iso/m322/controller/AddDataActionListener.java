@@ -22,12 +22,12 @@ public class AddDataActionListener implements ActionListener {
 		final Component item = (Component) e.getSource();
 		final JFrame frame = ReferenceFinder.findFrame(item);		
 
-		Eintrag a jsdaklflsdfjkl anal mit duggi ;
-		
+		Eintrag eintrag = ((MyFrame) frame).getEintrag();
+
 		final JList<String> list = ((MyFrame) frame).getMyJList();
 		final DefaultListModel<String> model = (DefaultListModel<String>) list.getModel();
 		
-		model.addElement(a.getName());
+		model.addElement(eintrag.getEintrag());
 		
 		
 	
