@@ -40,11 +40,11 @@ public class MyFrame extends JFrame {
 
 	// main panel
 	private JPanel createContent() {
-		final JPanel content = new JPanel(new GridLayout(1, 2, 5, 5));
+		final JPanel content = new JPanel(new BorderLayout(5, 5));
 		content.setBackground(new Color(255, 255, 255));
 
-		content.add(createContentLeft());
-		content.add(createContentRight());
+		content.add(createContentLeft(), BorderLayout.CENTER);
+		content.add(createContentRight(), BorderLayout.EAST);
 
 		return content;
 	}
@@ -78,6 +78,9 @@ public class MyFrame extends JFrame {
 		final JPanel contentRight = new JPanel(new BorderLayout(5, 5));
 		contentRight.setBackground(new Color(255, 255, 255));
 
+		final JPanel contentRightUp = new JPanel (new GridLayout(10, 1, 1, 1));
+		
+		
 		final JLabel lEintrag = new JLabel();
 		lEintrag.setText("Neuer Eintrag");
 
@@ -87,13 +90,11 @@ public class MyFrame extends JFrame {
 		final JButton bAdd = new JButton(FrameConstants.FRAME_BUTTON_ADD);
 
 		bAdd.addActionListener(new AddDataActionListener());
+		contentRightUp.add(lEintrag);
+		contentRightUp.add(tEintrag);
+		contentRightUp.add(bAdd);
 
-		contentRight.add(tEintrag, BorderLayout.CENTER);
-		
-		contentRight.add(lEintrag, BorderLayout.NORTH);
-
-		contentRight.add(bAdd, BorderLayout.SOUTH);
-
+		contentRight.add(contentRightUp);
 		return contentRight;
 	}
 
@@ -120,8 +121,9 @@ public class MyFrame extends JFrame {
 		this.myJList = list;
 	}
 
-    public Eintrag getEintrag() {
-        return null;
-    }
+	public Eintrag getEintrag() {
+		String e = this.eintrag.getName();
+		return new Eintrag (e);
+	}
 
 }

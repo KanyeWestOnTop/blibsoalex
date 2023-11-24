@@ -29,6 +29,8 @@ public class AddDataActionListener implements ActionListener {
 		
 		model.addElement(eintrag.getEintrag());
 		
+
+		
 		
 		
 	

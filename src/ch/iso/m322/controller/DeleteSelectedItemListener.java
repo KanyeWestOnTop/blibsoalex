@@ -21,13 +21,11 @@ public class DeleteSelectedItemListener implements ActionListener {
 		final JList<String> list = frame.getMyJList();
 		final DefaultListModel<String> model = (DefaultListModel<String>) list.getModel();
 
-		List<String> selectedRows = list.getSelectedValuesList();
-		if (selectedRows.size() > 0) {
-			// Remove selected rows from the table model in reverse order
-			for (int i = selectedRows.size() - 1; i >= 0; i--) {
-				model.remove(i);
-			}
+		final List<String> selectedValuesList = list.getSelectedValuesList();
+		for (final String selectedValue : selectedValuesList) {
+			model.removeElement(selectedValue);
 		}
+		
 
 	}
 }
